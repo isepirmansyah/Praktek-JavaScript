@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="otentikasi.js"></script>
+    <style>
+        body {
+            background-color: aliceblue;
+            display: grid;
+            justify-content: center;
+        }
+
+        .bungkus {
+            width: 600px;
+            height: 500x;
+            background-color: white;
+            border: 2px solid silver;
+            border-radius: 7px;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .isi {
+            height: auto;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: greenyellow;
+            height: 30px;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            width: 70px;
+        }
+
+        input {
+            height: 28px;
+            width: 270px;
+            margin-top: 5px;
+            border: 1px solid silver;
+            border-radius: 5px;
+            padding-left: 7px;
+        }
+
+        .judul {
+            border-bottom: 5px silver solid;
+        }
+
+        .bung {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        ror1 = ''
+
+        function validasi() {
+            let nama = document.getElementById('nama').value
+            let email = document.getElementById('email').value
+            let jam = document.getElementById('jam').value
+            let tujuan = document.getElementById('tujuan').value
+            let jumlah = document.getElementById('jumlah').value
+            let ror1 = document.getElementById('ror1')
+            let ror2 = document.getElementById('ror2')
+            let ror3 = document.getElementById('ror3')
+            let ror4 = document.getElementById('ror4')
+            let ror5 = document.getElementById('ror5')
+
+            let isinama = document.getElementById('isinama')
+            let isiemail = document.getElementById('isiemail')
+            let isijam = document.getElementById('isijam')
+            let isitujuan = document.getElementById('isitujuan')
+            let isijumlah = document.getElementById('isijumlah')
+
+            if (nama == '') {
+                alert('Nama tidak boleh kosong')
+                ror1.innerHTML = 'Data tidak Valid nama required'
+            } else if (nama.length > 30) {
+                alert('Nama tidak boleh lebih dari 30 karakter')
+                ror1.innerHTML = 'Data tidak Valid nama maksimum 30 karakter'
+            } else if (email == '') {
+                alert('Email tidak boleh kosong')
+                ror2.innerHTML = 'Data tidak Valid email tidak boleh kosong'
+            } else if (jam == '') {
+                alert('Jam tidak boleh kosong')
+                ror3.innerHTML = 'Data tidak Valid jam tidak boleh kosong'
+            } else if (tujuan == '') {
+                alert('Tujuan tidak boleh kosong')
+                ror4.innerHTML = 'Data tidak Valid tujuan tidak boleh kosong'
+            } else if (jumlah == '') {
+                alert('Jumlah tiket tidak boleh kosong')
+                ror5.innerHTML = 'Data tidak Valid jumlah tiket tidak boleh kosong'
+            } else if (nama != '' && email != '' && jam != '' && tujuan != '' && jumlah != '') {
+                alert('Terimakasih Telah Mengisi Data Dengan Benar')
+                document.getElementById('display').style.display = 'block'
+                isinama.innerHTML = nama
+                isiemail.innerHTML = email
+                isijam.innerHTML = jam
+                isitujuan.innerHTML = tujuan
+                isijumlah.innerHTML = jumlah
+            }
+
+        }
+    </script>
+    <center>
+        <h2>Selamat Datang Di Alikasi Form Validasi Isep Irmansyah</h2>
+    </center>
+    <div class="bungkus">
+        <div class="judul">
+            <h3 style="margin-top: 0px; text-align: center;">Silahkan Masukan Data Anda</h3>
+        </div>
+        <div class="isi">
+
+            <div class="bung">
+                <div>
+                    <div>
+                        <label for="">Nama Pelanggan</label>
+                        <input type="text" id="nama" placeholder="Masukan Nama">
+                        <small style="color: red;" id="ror1"></small>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label for="">Email</label>
+                        <input type="email" id="email" placeholder="Masuakan Email">
+                        <small style="color: red;" id="ror2"></small>
+                    </div>
+                </div>
+                <div style="margin-left: 15px;">
+                    <div>
+                        <label for="">Jam Keberangkatan</label>
+                        <input type="text" id="jam" placeholder="Masukan Jam Berangkat">
+                        <small style="color: red;" id="ror3"></small>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <label for="">Tujuan Keberangkatan</label>
+                        <input type="text" id="tujuan" placeholder="Masuakan Tujuan">
+                        <small style="color: red;" id="ror4"></small>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <label for="">Jumlah Tiket</label>
+                <input style="width: 96.1%;" type="text" id="jumlah" placeholder="Masuakan Tiket">
+                <small style="color: red;" id="ror5"></small>
+            </div>
+            <center>
+                <button onclick="validasi()">Sumbit</button>
+            </center>
+
+
+        </div>
+    </div>
+    <center>
+        <div id="display" style="display: none; margin-top: 30px; font-size: 22px;">
+            <h4>Berikut Data Yang Anda Masukan</h4>
+            <table style="margin-top: -20px;">
+                <tr>
+                    <td>Nama Pelanggan</td>
+                    <td>:</td>
+                    <td id="isinama"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td id="isiemail"></td>
+                </tr>
+                <tr>
+                    <td>Jam Keberangkatan</td>
+                    <td>:</td>
+                    <td id="isijam"></td>
+                </tr>
+                <tr>
+                    <td>Tujuan Keberangkatan &nbsp;&nbsp;</td>
+                    <td>:</td>
+                    <td id="isitujuan"></td>
+                </tr>
+                <tr>
+                    <td>Jumlah Tiket</td>
+                    <td>:</td>
+                    <td id="isijumlah"></td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>
