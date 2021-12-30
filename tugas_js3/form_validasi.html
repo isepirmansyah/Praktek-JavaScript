@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="otentikasi.js"></script>
     <style>
         body {
             background-color: aliceblue;
@@ -80,6 +79,7 @@
             let isijam = document.getElementById('isijam')
             let isitujuan = document.getElementById('isitujuan')
             let isijumlah = document.getElementById('isijumlah')
+            let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
             if (nama == '') {
                 alert('Nama tidak boleh kosong')
@@ -99,16 +99,21 @@
             } else if (jumlah == '') {
                 alert('Jumlah tiket tidak boleh kosong')
                 ror5.innerHTML = 'Data tidak Valid jumlah tiket tidak boleh kosong'
-            } else if (nama != '' && email != '' && jam != '' && tujuan != '' && jumlah != '') {
-                alert('Terimakasih Telah Mengisi Data Dengan Benar')
-                document.getElementById('display').style.display = 'block'
-                isinama.innerHTML = nama
-                isiemail.innerHTML = email
-                isijam.innerHTML = jam
-                isitujuan.innerHTML = tujuan
-                isijumlah.innerHTML = jumlah
+            } else if (email != '') {
+                if (email.match(mailformat)) {
+                    if (nama != '' && email != '' && jam != '' && tujuan != '' && jumlah != '') {
+                        alert('Terimakasih Telah Mengisi Data Dengan Benar')
+                        document.getElementById('display').style.display = 'block'
+                        isinama.innerHTML = nama
+                        isiemail.innerHTML = email
+                        isijam.innerHTML = jam
+                        isitujuan.innerHTML = tujuan
+                        isijumlah.innerHTML = jumlah
+                    }
+                } else {
+                    alert("Email harus berupa email exp. tes@gmail.com !!");
+                }
             }
-
         }
     </script>
     <center>
